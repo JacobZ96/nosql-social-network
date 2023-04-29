@@ -4,7 +4,7 @@
 Backend application for a social networking website
 
 ## License 
-[![License](https://img.shields.io/badge/License--yellow.svg)](https://opensource.org/licenses/)
+[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/)
 
 ## Table of Contents
 - [Installation](#installation)
@@ -29,6 +29,8 @@ N/A
 
 ## Applications Used
 MongoDB, Mongoose, express
+
+## Walkthrough Video
 
 ## Questions
 If you have any questing please contact me at jacobzea96@gmail.com, and you can find more of my work at https://github.com/JacobZ96. 
