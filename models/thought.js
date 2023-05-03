@@ -11,7 +11,6 @@ const thoughtSchema = new Schema(
         createdAt: {
             type: Date,
             default: Date.now,
-            // Use a getter method to format the timestamp on query
             get: (createdAtVal) => dateFormat(createdAtVal),
         },
         username: {
@@ -20,7 +19,6 @@ const thoughtSchema = new Schema(
         },
         reactions: [reactionSchema],
     },
-    // create virtual to get total count of reactions on retrieval
     {
         toJSON: {
             getters: true,
@@ -29,6 +27,10 @@ const thoughtSchema = new Schema(
     }
 );
 
+thoughtSchema.virtual('reactionCount').get(function() {
+    return this.reactions.length;
+  });
+  
 const Thought = model('Thought', thoughtSchema);
 
 module.exports = Thought;

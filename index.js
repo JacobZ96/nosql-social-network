@@ -9,10 +9,15 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(routes);
 
-app.listen(PORT, () => {
-  console.log(`App running on port ${PORT}!`);
-  db.once('open', () => {
-    console.log('Connected to the database.');
+// app.listen(PORT, () => {
+//   console.log(`App running on port ${PORT}!`);
+//   db.once('open', () => {
+//     console.log('Connected to the database.');
+//   });
+// });
+
+db.once('open', () => {
+  app.listen(PORT, () => {
+    console.log(`API server running on port ${PORT}!`);
   });
 });
-

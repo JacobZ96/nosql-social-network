@@ -19,7 +19,6 @@ const reactionSchema = new Schema(
         createdAt: {
             type: Date,
             default: Date.now,
-            // Use a getter method to format the timestamp on query
             get: (createdAtVal) => dateFormat(createdAtVal),
         },
     },
@@ -32,5 +31,6 @@ const reactionSchema = new Schema(
     }
 );
 
+const Reaction = model('Reaction', reactionSchema);
 
 module.exports = Reaction;

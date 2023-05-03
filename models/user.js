@@ -27,7 +27,6 @@ const userSchema = new Schema(
         },
     ],
     },
-    // create virtual to get total count of friends on retrieval
     {
         toJSON: {
             virtuals: true,
@@ -36,6 +35,10 @@ const userSchema = new Schema(
     },  
 );
 
+userSchema.virtual('friendCount').get(function() {
+    return this.friends.length;
+  });
+  
 const User = model('User', userSchema);
 
 module.exports = User;
