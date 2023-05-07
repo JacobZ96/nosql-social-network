@@ -29,7 +29,34 @@ const thoughtController = {
       console.log(err);
       res.status(500).json(err);
     }
+  },
+  async getSingleThought(req, res) {
+    try {
+      const dbThoughtData = await Thought.findOne({ _id: req.params.thoughtId })
+      .select('-__v')
+      .populate('friends');
+      res.json(dbThoughtData);
+    } catch (error) {
+      res.status(500).json(error);
+    }
+  },
+  async updateThought(req, res) {
+    try {
+      const dbThoughtData = await Thought.findOneAndUpdate(
+        { _id: req.params.thoughtId },
+        {
+          $set: req.body,
+        },
+        {
+          runValidators: true,
+          new: true,
+        }
+      );
+      res.json(dbThoughtData);
+    } catch (error) {
+      res.status(500).json(error);
+    }
+},
 
-}
 };
 module.exports = thoughtController;
