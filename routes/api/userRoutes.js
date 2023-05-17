@@ -1,5 +1,5 @@
 const router = require('express').Router();
-import { getUsers, createUser, getSingleUser, updateUser, deleteUser, addFriend, deleteFriend } from '../../controllers/user-controller';
+const { getUsers, createUser, getSingleUser, updateUser, deleteUser, addFriend, deleteFriend } = require('../../controllers/user-controller');
 
 
 
