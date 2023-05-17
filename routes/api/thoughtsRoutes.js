@@ -7,8 +7,8 @@ const { getThoughts, createThought, getSingleThought, updateThought, deleteThoug
 router.route('/').get(getThoughts).post(createThought);
 
 // /api/thoughts/:thoughtId
-router.route('/:thoughtId').get(getSingleThought).put(updateThought).delete(deleteThought);
+router.route('/:id').get(getSingleThought).put(updateThought).delete(deleteThought);
 // /api/thoughts/:thoughtId/friends/:friendId
-router.route('/:thoughtId/friends/:friendId').post(addReaction).delete(deleteReaction);
+router.route('/:id/reactions/:reactionId').post(addReaction).delete(deleteReaction);
 
 module.exports = router;
